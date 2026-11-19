@@ -1,0 +1,238 @@
+---
+id: https://w3id.org/linkml/remote-sensing
+name: remote-sensing
+title: Earth Science Measurement Microschemas
+description: >-
+  Named subclasses of Measurement for specific earth science observation types.
+  Each class maps the measurement_type slot to equivalent CURIEs from multiple
+  source vocabularies (CF Conventions, SWEET, ENVO, BERVO, PATO) via rules,
+  and constrains valid units (UCUM) and matrices (ENVO).
+version: 0.1.0
+license: BSD-3-Clause
+
+prefixes:
+  linkml:  https://w3id.org/linkml/
+  remses:      https://w3id.org/linkml/remote-sensing/
+  ENVO:    http://purl.obolibrary.org/obo/ENVO_
+  BERVO:   http://purl.obolibrary.org/obo/BERVO_
+  sweet:   http://sweetontology.net/
+  PATO:    http://purl.obolibrary.org/obo/PATO_
+
+default_prefix: remses
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+  GlobalGrid:
+    description:
+    slots:
+      - grid_id
+      - epsg_code
+      - x_dim
+      - y_dim
+      - z_dim
+  Dimension:
+    description:
+    slots:
+      - direction
+      - dimension_type
+      - dimension_size
+      - resolution
+      - reference
+  Resolution:
+    description:
+    slots:
+      - value
+      - unit
+  DataCollection:
+    description:
+    slots:
+      - collection_id
+      - spatial_resolution
+      - temporal_resolution
+      - instrument
+      - platform
+      - spatial_extent
+      - temporal_extent
+  SpatialResolution:
+    description:
+    slots:
+  TemporalResolution:
+    description:
+    slots:
+  Instrument:
+    description:
+    slots:
+  Platform:
+    description:
+    slots:
+  TemporalExtent:
+    description:
+    slots:
+  SpatialExtent:
+    description:
+    slots:
+  Variable:
+    description:
+    slots:
+      - variable_id
+      - variable_label
+      - unit
+      - valid_range_min
+      - valid_range_max
+      - missing_value
+      - data_type
+      - scale
+      - offset
+      - measurement_object #not sure what this is
+      - measurement_type #CURIE
+      - context #not sure what this is
+      - variable_type #not sure what this is
+      - associated_collection
+  Measurement:
+    description:
+    slots:
+      - associated_variable
+      - value
+      - latitude
+      - longitude
+      - elevation
+      - time_stamp
+
+slots:
+  grid_id:
+    description:
+    range:
+  epsg_code:
+    description:
+    range:
+  x_dim:
+    description:
+    range: Dimension
+  y_dim:
+    description:
+    range: Dimension
+  z_dim:
+    description:
+    range: Dimension
+  direction:
+    description:
+    range: DirectionEnum
+  dimension_type:
+    description:
+    range: DimensionEnum
+  dimension_size:
+    description:
+    range:
+  resolution:
+    description:
+    range:
+  reference:
+    description:
+    range:
+  value:
+    description:
+    range:
+  unit:
+    description:
+    range:
+  collection_id:
+    description:
+    range:
+  spatial_resolution:
+    description:
+    range:
+  temporal_resolution:
+    description:
+    range:
+  instrument:
+    description:
+    range: Instrument
+  platform:
+    description:
+    range: Platform
+  spatial_extent:
+    description:
+    range:
+  temporal_extent:
+    description:
+    range:
+  variable_id:
+    description:
+    range:
+  variable_label:
+    description:
+    range:
+  valid_range_min:
+    description:
+    range:
+  valid_range_max:
+    description:
+    range:
+  missing_value:
+    description:
+    range:
+  data_type:
+    description:
+    range:
+  scale:
+    description:
+    range:
+  offset:
+    description:
+    range:
+  measurement_object: #not sure what this is
+    description:
+    range:
+  measurement_type: #CURIE
+    description:
+    range: uriorcurie
+  context: #not sure what this is
+    description:
+    range:
+  variable_type: #not sure what this is
+    description:
+    range:
+  associated_collection:
+    description:
+    range: DataCollection
+  associated_variable:
+    description:
+    range:  Variable
+  value:
+    description:
+    range:
+  latitude:
+    description:
+    range:
+  longitude:
+    description:
+    range:
+  elevation:
+    description:
+    range:
+  time_stamp:
+    description:
+    range:
+
+enums:
+  DirectionEnum:
+    description:
+    permissible_values:
+      X:
+        description:
+      Y:
+        description:
+      Z:
+        description:
+  DimensionEnum:
+    description:
+    permissible_values:
+      latitude:
+        description:
+      longitude:
+        description:
+      elevation:
+        description:
